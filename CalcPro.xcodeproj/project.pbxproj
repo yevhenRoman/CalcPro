@@ -8,13 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		15D7442C1F0950800080526C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7442B1F0950800080526C /* AppDelegate.swift */; };
-		15D7442E1F0950800080526C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7442D1F0950800080526C /* ViewController.swift */; };
+		15D7442E1F0950800080526C /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7442D1F0950800080526C /* MainController.swift */; };
 		15D744311F0950800080526C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D7442F1F0950800080526C /* Main.storyboard */; };
 		15D744341F0950800080526C /* CalcPro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15D744321F0950800080526C /* CalcPro.xcdatamodeld */; };
 		15D744361F0950800080526C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D744351F0950800080526C /* Assets.xcassets */; };
 		15D744391F0950800080526C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D744371F0950800080526C /* LaunchScreen.storyboard */; };
 		15D744441F0950800080526C /* CalcProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D744431F0950800080526C /* CalcProTests.swift */; };
 		15D7444F1F0950800080526C /* CalcProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7444E1F0950800080526C /* CalcProUITests.swift */; };
+		15D7445E1F0950C80080526C /* BrainCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7445D1F0950C80080526C /* BrainCalc.swift */; };
+		15D744601F0950D30080526C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7445F1F0950D30080526C /* Protocols.swift */; };
+		15D744641F0952990080526C /* DisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D744631F0952990080526C /* DisplayController.swift */; };
+		15D744661F0952AB0080526C /* TouchpadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D744651F0952AB0080526C /* TouchpadController.swift */; };
+		15D744681F096B420080526C /* InputAdpter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D744671F096B420080526C /* InputAdpter.swift */; };
+		15D7446A1F096B540080526C /* OutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D744691F096B530080526C /* OutputAdapter.swift */; };
+		15D7446C1F096B970080526C /* CheckAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7446B1F096B970080526C /* CheckAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +44,7 @@
 /* Begin PBXFileReference section */
 		15D744281F0950800080526C /* CalcPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalcPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D7442B1F0950800080526C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		15D7442D1F0950800080526C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		15D7442D1F0950800080526C /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		15D744301F0950800080526C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		15D744331F0950800080526C /* CalcPro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalcPro.xcdatamodel; sourceTree = "<group>"; };
 		15D744351F0950800080526C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +56,13 @@
 		15D7444A1F0950800080526C /* CalcProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalcProUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D7444E1F0950800080526C /* CalcProUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcProUITests.swift; sourceTree = "<group>"; };
 		15D744501F0950800080526C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15D7445D1F0950C80080526C /* BrainCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrainCalc.swift; path = ../../PifagorCalc/PifagorCalc/BrainCalc.swift; sourceTree = "<group>"; };
+		15D7445F1F0950D30080526C /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = ../../../../Downloads/TestProject/TestProject/Model/Protocols.swift; sourceTree = "<group>"; };
+		15D744631F0952990080526C /* DisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayController.swift; sourceTree = "<group>"; };
+		15D744651F0952AB0080526C /* TouchpadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchpadController.swift; sourceTree = "<group>"; };
+		15D744671F096B420080526C /* InputAdpter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAdpter.swift; sourceTree = "<group>"; };
+		15D744691F096B530080526C /* OutputAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputAdapter.swift; sourceTree = "<group>"; };
+		15D7446B1F096B970080526C /* CheckAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +113,16 @@
 		15D7442A1F0950800080526C /* CalcPro */ = {
 			isa = PBXGroup;
 			children = (
-				15D7442B1F0950800080526C /* AppDelegate.swift */,
-				15D7442D1F0950800080526C /* ViewController.swift */,
+				15D7445F1F0950D30080526C /* Protocols.swift */,
+				15D744621F0952780080526C /* Touchpad */,
+				15D744611F0952700080526C /* Display */,
+				15D7442D1F0950800080526C /* MainController.swift */,
+				15D7445D1F0950C80080526C /* BrainCalc.swift */,
 				15D7442F1F0950800080526C /* Main.storyboard */,
-				15D744351F0950800080526C /* Assets.xcassets */,
-				15D744371F0950800080526C /* LaunchScreen.storyboard */,
-				15D7443A1F0950800080526C /* Info.plist */,
-				15D744321F0950800080526C /* CalcPro.xcdatamodeld */,
+				15D7445C1F09508D0080526C /* Supporting */,
+				15D744671F096B420080526C /* InputAdpter.swift */,
+				15D744691F096B530080526C /* OutputAdapter.swift */,
+				15D7446B1F096B970080526C /* CheckAdapter.swift */,
 			);
 			path = CalcPro;
 			sourceTree = "<group>";
@@ -126,6 +143,34 @@
 				15D744501F0950800080526C /* Info.plist */,
 			);
 			path = CalcProUITests;
+			sourceTree = "<group>";
+		};
+		15D7445C1F09508D0080526C /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				15D7442B1F0950800080526C /* AppDelegate.swift */,
+				15D744351F0950800080526C /* Assets.xcassets */,
+				15D744371F0950800080526C /* LaunchScreen.storyboard */,
+				15D7443A1F0950800080526C /* Info.plist */,
+				15D744321F0950800080526C /* CalcPro.xcdatamodeld */,
+			);
+			name = Supporting;
+			sourceTree = "<group>";
+		};
+		15D744611F0952700080526C /* Display */ = {
+			isa = PBXGroup;
+			children = (
+				15D744631F0952990080526C /* DisplayController.swift */,
+			);
+			name = Display;
+			sourceTree = "<group>";
+		};
+		15D744621F0952780080526C /* Touchpad */ = {
+			isa = PBXGroup;
+			children = (
+				15D744651F0952AB0080526C /* TouchpadController.swift */,
+			);
+			name = Touchpad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +307,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15D7442E1F0950800080526C /* ViewController.swift in Sources */,
+				15D744601F0950D30080526C /* Protocols.swift in Sources */,
+				15D7442E1F0950800080526C /* MainController.swift in Sources */,
+				15D744641F0952990080526C /* DisplayController.swift in Sources */,
+				15D7445E1F0950C80080526C /* BrainCalc.swift in Sources */,
+				15D7446C1F096B970080526C /* CheckAdapter.swift in Sources */,
+				15D744681F096B420080526C /* InputAdpter.swift in Sources */,
 				15D744341F0950800080526C /* CalcPro.xcdatamodeld in Sources */,
+				15D744661F0952AB0080526C /* TouchpadController.swift in Sources */,
 				15D7442C1F0950800080526C /* AppDelegate.swift in Sources */,
+				15D7446A1F096B540080526C /* OutputAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
