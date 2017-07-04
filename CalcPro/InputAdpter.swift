@@ -19,16 +19,16 @@ class IntputAdapter: InputProtocol {
     
     
     func enterNum(_ number: Int){
-        if checkAdapter.checkGrammer(input: String(number)){
-            
-            brain.EnterEquation(equation: String(number))
+        
+        if checkAdapter.checkGrammer(stringForCheck: String(number)){
+        brain.EnterEquation(equation: String(number))
         }
     }
     func enterUtility(_ symbol: String){
         
-    if checkAdapter.checkGrammer(input: String(symbol)){
+   if checkAdapter.checkGrammer(stringForCheck: symbol){
        brain.EnterEquation(equation: symbol)
-    }
+        }
     }
     func enterServiceKey(_ serviceKey: Int) {
         //дописати дії сервісних клавіш

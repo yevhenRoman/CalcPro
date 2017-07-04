@@ -15,13 +15,15 @@ class CheckAdapter {
    // private var input: String = ""
     private var corectness = true
     private var regexArray = [String]()
-
+    private var countOfEntrance: Int = 0
     
     private func forming(input: String){
-        let idx = CFStringTokenizerAdvanceToNextToken(index as! CFStringTokenizer)
+        
+        let characters = Array(input.characters)
+        
          for index in 0 ..< input.characters.count
          {
-            switch input.index(input.startIndex, offsetBy: index) {
+            switch characters[index] {
             case "+": regexArray.append("S")
             case "-": regexArray.append("S")
             case "×": regexArray.append("S")
@@ -30,62 +32,77 @@ class CheckAdapter {
             case "(": regexArray.append("B")
             case ")": regexArray.append("b")
             case ".": regexArray.append("P")
-            case String(0...9): regexArray.append("D")
-         }
+            // Як можна замінити 0...9 ???
+            case "0": regexArray.append("D")
+            case "1": regexArray.append("D")
+            case "2": regexArray.append("D")
+            case "3": regexArray.append("D")
+            case "4": regexArray.append("D")
+            case "5": regexArray.append("D")
+            case "6": regexArray.append("D")
+            case "7": regexArray.append("D")
+            case "8": regexArray.append("D")
+            case "9": regexArray.append("D")
+            default:break
+            }
+        }
     }
+    
+   private func prepare(regaxArray: Array<String>){
         
-    func prepare(regaxArray: Array<String>){
-        
-        for index in 0 ..< regexArray.count {
+    for index in 0 ..< regexArray.count-1 {
             
-            if regexArray[index] == regexArray[index+1]{
+            if ((regaxArray.count != 1)&&(regexArray[index] == regexArray[index+1])){
                 regexArray.remove(at: index)
             }
         }
     }
     
     //Cheking
-    func regaxChecker (regaxArray: Array<String>){
-        for index in 0 ..< regexArray.count {
-            switch regexArray[index] {
-                
+  private  func regaxChecker (regaxArray: Array<String>){
+    while (countOfEntrance < regexArray.count-1) {
+            switch regexArray[countOfEntrance] {
+            
             case "S":
                 // SB or SD - must be
-                if !((index != 0)&&(regexArray[index+1] == "B" || regexArray[index+1] == "D")){
+                if (regaxArray.count != 1 ) && (!((countOfEntrance != 0)&&(regexArray[countOfEntrance+1] == "B" || regexArray[countOfEntrance+1] == "D"))){
                     corectness=false
                 }
-                if (regexArray[index] == "-" && index == 0 && regexArray[index+1] == "D"){
+                if (regexArray[countOfEntrance] == "-" && countOfEntrance == 0 && regexArray[countOfEntrance+1] == "D"){
                     corectness=false
                 }
             case "D":
-                if !(regexArray[index+1] == "S" || regexArray[index+1] == "P" || regexArray[index+1] == "b" || regexArray[index+1] == "D"){
+                if ((regaxArray.count != 1 ) && !((regexArray[countOfEntrance+1] == "S" || regexArray[countOfEntrance+1] == "P" || regexArray[countOfEntrance+1] == "b" || regexArray[countOfEntrance+1] == "D"))){
                     corectness=false
                 }
             case "P":
                 //Після крапки може бути тільки цифра
-                if !(regexArray[index+1] == "D"){
+                if (regaxArray.count != 1 ) && !((regexArray[countOfEntrance+1] == "D")){
                     corectness=false
                 }
             case "B":
-                if !(regexArray[index+1] == "D" || regexArray[index+1] == "-"){
+                if (regaxArray.count != 1 )&&(!((regexArray[countOfEntrance+1] == "D" || regexArray[countOfEntrance+1] == "-"))){
                     corectness=false
                 }
             case "b":
-                if !(regexArray[index+1] == "S" || regexArray[index+1] == "b"){
+                if (regaxArray.count != 1 )&&(!((regexArray[countOfEntrance+1] == "S" || regexArray[countOfEntrance+1] == "b"))){
                     corectness=false
                 }
             default: break
             }
+            if !corectness {
+                break
+            }
         }
     }
     
-    func checkGrammer (input: String)->Bool{
+    func checkGrammer (stringForCheck: String)->Bool{
         
-        forming(input: input)
+        forming(input: stringForCheck)
         prepare(regaxArray: regexArray)
         regaxChecker(regaxArray: regexArray)
-        
+        countOfEntrance += 1
         return corectness
     }
     
-    }}
+    }
