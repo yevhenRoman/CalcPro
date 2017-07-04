@@ -8,29 +8,22 @@
 
 import Foundation
 
-
 class IntputAdapter: InputProtocol {
     
-    //Не розумію навіщо це тут, запитати в Сергія
     static let shared = IntputAdapter()
     let brain = PolishBrain.shared
-    let checkAdapter = CheckAdapter.shared
-    //let checker = Checker.shared
-    
+    let checker = Checker.shared
     
     func enterNum(_ number: Int){
         
-        if checkAdapter.checkGrammer(stringForCheck: String(number)){
+        if checker.checkSymbolForCorrectInput(number){
         brain.EnterEquation(equation: String(number))
         }
     }
-    func enterUtility(_ symbol: String){
+    func enterUtility(_ symbol: Int){
         
-   if checkAdapter.checkGrammer(stringForCheck: symbol){
-       brain.EnterEquation(equation: symbol)
+   if checker.checkSymbolForCorrectInput(symbol){
+       brain.EnterEquation(equation: String(symbol))
         }
-    }
-    func enterServiceKey(_ serviceKey: Int) {
-        //дописати дії сервісних клавіш
     }
 }

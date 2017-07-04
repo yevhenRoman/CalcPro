@@ -22,7 +22,6 @@
 		15D744661F0952AB0080526C /* TouchpadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D744651F0952AB0080526C /* TouchpadController.swift */; };
 		15D744681F096B420080526C /* InputAdpter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D744671F096B420080526C /* InputAdpter.swift */; };
 		15D7446A1F096B540080526C /* OutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D744691F096B530080526C /* OutputAdapter.swift */; };
-		15D7446C1F096B970080526C /* CheckAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7446B1F096B970080526C /* CheckAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +63,6 @@
 		15D744651F0952AB0080526C /* TouchpadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchpadController.swift; sourceTree = "<group>"; };
 		15D744671F096B420080526C /* InputAdpter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAdpter.swift; sourceTree = "<group>"; };
 		15D744691F096B530080526C /* OutputAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputAdapter.swift; sourceTree = "<group>"; };
-		15D7446B1F096B970080526C /* CheckAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +121,7 @@
 				15D7442F1F0950800080526C /* Main.storyboard */,
 				15D744671F096B420080526C /* InputAdpter.swift */,
 				15D744691F096B530080526C /* OutputAdapter.swift */,
-				15D7446B1F096B970080526C /* CheckAdapter.swift */,
+				150E24271F0A6B9500221B62 /* Checker.swift */,
 				15D7445C1F09508D0080526C /* Supporting */,
 			);
 			path = CalcPro;
@@ -150,7 +148,6 @@
 		15D7445C1F09508D0080526C /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				150E24271F0A6B9500221B62 /* Checker.swift */,
 				15D7442B1F0950800080526C /* AppDelegate.swift */,
 				15D744351F0950800080526C /* Assets.xcassets */,
 				15D744371F0950800080526C /* LaunchScreen.storyboard */,
@@ -315,7 +312,6 @@
 				15D744641F0952990080526C /* DisplayController.swift in Sources */,
 				150E24281F0A6B9500221B62 /* Checker.swift in Sources */,
 				15D7445E1F0950C80080526C /* BrainCalc.swift in Sources */,
-				15D7446C1F096B970080526C /* CheckAdapter.swift in Sources */,
 				15D744681F096B420080526C /* InputAdpter.swift in Sources */,
 				15D744341F0950800080526C /* CalcPro.xcdatamodeld in Sources */,
 				15D744661F0952AB0080526C /* TouchpadController.swift in Sources */,

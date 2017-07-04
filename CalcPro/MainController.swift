@@ -19,13 +19,11 @@ class MainController: UIViewController {
         inputAdapter.enterNum(num)
     }
     
-    func onUtilityTap(symbol: String) {
+    func onUtilityTap(symbol: Int) {
         inputAdapter.enterUtility(symbol)
     }
     
-    func onServiceTap(keyNum: Int) {
-        inputAdapter.enterServiceKey(keyNum)
-    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == "DisplayControllerSegue", let controller = segue.destination as? DisplayController {
@@ -37,10 +35,7 @@ class MainController: UIViewController {
             
             touchpad.onNumTap = { [weak self] num in self?.onNumericTap(num: num)}
             touchpad.onUtilityTap = { [weak self] symbol in self?.onUtilityTap(symbol: symbol)}
-            touchpad.onServiceTap = { [weak self] keyNum in self?.onServiceTap(keyNum: keyNum)}
 
-            
-            
         }
         
     

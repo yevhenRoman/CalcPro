@@ -9,123 +9,97 @@
 import Foundation
 
 class Checker {
-    
     static let shared = Checker()
-    private enum Operation {
+    
+    //var firstEntrence: Bool
+    var counterLeftBrackets: Int = 0   // MUST BE UNRESET
+    var counterRightBrackets: Int = 0 // MUST BE UNRESET
+    var lastSymbol: String = ""      // Give a "" - we initialize a var
+    var currentSymbol: String = ""  // Give a "" - we initialize a var
+    var correctInput:Bool = false  //Reminder - need to resetting value every time
+    
+    private func giveInentificator(input: Int){
         
-        case signs (String)
-        case bracketOpen (String)
-        case bracketClose (String)
-        case digits (String)
-        case dot (String)
-        
-    }
-    private var input: String = ""
-    private var corectness = true
-    private var regexArray = [String]()
-    
-    private var operations: Dictionary<String, Operation> =
-        [
-            "+": Operation.signs("S"),
-            "-": Operation.signs("S"),
-            "×": Operation.signs("S"),
-            "±": Operation.signs("S"),
-            "×": Operation.signs("S"),
-            "(": Operation.bracketOpen("B"),
-            ")": Operation.bracketClose("b"),
-            ".": Operation.dot("P"),
-            "1": Operation.digits("D"),
-            "2": Operation.digits("D"),
-            "3": Operation.digits("D"),
-            "4": Operation.digits("D"),
-            "5": Operation.digits("D"),
-            "6": Operation.digits("D"),
-            "7": Operation.digits("D"),
-            "8": Operation.digits("D"),
-            "9": Operation.digits("D"),
-            "0": Operation.digits("D"),
-            ]
-    //    func checkInput(input: String)//->Bool
-    //    {
-    //Спочатку треба буде підрахувати кількість дужок
-    //це можна буде робити зразу в форі
-    
-    //треба змінити алгоритм так щоб можна було ставити + - перед числами
-    
-    //var buffer: String
-    //var firstEntrance: Bool = false
-    // var transformed: String = ""
-    
-    //Func
-    private func formingRegex(input: String){
-        if let operation = operations[input] {
+        switch input {
             
-            switch operation {
-                
-            case .signs(let sign):
-                regexArray.append(sign)
-            case .dot(let dot):
-                regexArray.append(dot)
-            case .bracketOpen(let bracket1):
-                regexArray.append(bracket1)
-            case .bracketClose(let bracket2):
-                regexArray.append(bracket2)
-            case .digits(let digit):
-                regexArray.append(digit)
-                
-            }
+        case symbolsUtility.pls.rawValue: currentSymbol = "S"
+        case symbolsUtility.mns.rawValue: currentSymbol = "M" // M: Minus - must have a specific indetificator, because it can be before almost all symbols
+        case symbolsUtility.mul.rawValue: currentSymbol = "S"
+        case symbolsUtility.div.rawValue: currentSymbol = "S"
+        case symbolsUtility.leftBracket.rawValue: currentSymbol = "L"
+        case symbolsUtility.rightBracket.rawValue: currentSymbol = "R"
+        case symbolsUtility.dot.rawValue: currentSymbol = "P"
+        case symbolsUtility.sqrt.rawValue: currentSymbol = "Q" // Q: Need thinking about brackets, because when we open bracket automatically when we use sqrt, so we need to count openBrackets and don't forget for close it
+            
+        // How to change in one column 0...9 if they have the same indentificator ???
+        case 0: currentSymbol = "D"
+        case 1: currentSymbol = "D"
+        case 2: currentSymbol = "D"
+        case 3: currentSymbol = "D"
+        case 4: currentSymbol = "D"
+        case 5: currentSymbol = "D"
+        case 6: currentSymbol = "D"
+        case 7: currentSymbol = "D"
+        case 8: currentSymbol = "D"
+        case 9: currentSymbol = "D"
+        default:break
         }
     }
-    //Prepare string for regax
-    private func prepare(regaxArray: Array<String>){
+    private func identifyingChecker(){
         
-        for index in 0 ..< regexArray.count {
-            
-            if regexArray[index] == regexArray[index+1]{
-                regexArray.remove(at: index)
-            }
-        }
-    }
-    
-    //Cheking
-    private func regaxChecker (regaxArray: Array<String>){
-        for index in 0 ..< regexArray.count {
-            switch regexArray[index] {
-                
-            case "S":
-                // SB or SD - must be
-                if !((index != 0)&&(regexArray[index+1] == "B" || regexArray[index+1] == "D")){
-                    corectness=false
-                }
-                if (regexArray[index] == "-" && index == 0 && regexArray[index+1] == "D"){
-                    corectness=false
-                }
-            case "D":
-                if !(regexArray[index+1] == "S" || regexArray[index+1] == "P" || regexArray[index+1] == "b" || regexArray[index+1] == "D"){
-                    corectness=false
-                }
-            case "P":
-                //Після крапки може бути тільки цифра
-                if !(regexArray[index+1] == "D"){
-                    corectness=false
-                }
-            case "B":
-                if !(regexArray[index+1] == "D" || regexArray[index+1] == "-"){
-                    corectness=false
-                }
-            case "b":
-                if !(regexArray[index+1] == "S" || regexArray[index+1] == "b"){
-                    corectness=false
-                }
+        if(lastSymbol == ""){
+            switch currentSymbol {
+            // "S" - can't be first symbol because is + , *, /, but NOT MINUS, Minus can be!!!
+            case "D": lastSymbol = currentSymbol; correctInput = true
+            case "M": lastSymbol = currentSymbol; correctInput = true
+            case "L": lastSymbol = currentSymbol; correctInput = true
+            case "Q": lastSymbol = currentSymbol; correctInput = true
             default: break
             }
         }
-    }
-    
-    func checkGrammer (input: String){
-        formingRegex(input: input)
-        prepare(regaxArray: regexArray)
-        regaxChecker(regaxArray: regexArray)
+        else{
+            switch currentSymbol {
+            case "D":
+                if( lastSymbol == "D" || lastSymbol == "M" || lastSymbol == "S" || lastSymbol == "P" || lastSymbol == "L"){
+                correctInput = true
+                    lastSymbol = currentSymbol
+                }
+            case "S":
+                if(lastSymbol == "D" || lastSymbol == "R"){
+                    correctInput = true
+                    lastSymbol = currentSymbol
+                }
+            case "M":
+                if(lastSymbol == "D" || lastSymbol == "R" || lastSymbol == "L"){
+                    correctInput = true
+                    lastSymbol = currentSymbol
+                }
+            case "P": if(lastSymbol == "D"){
+                correctInput = true
+                lastSymbol = currentSymbol
+                }
+            case "L": if(lastSymbol == "S" || lastSymbol == "M" || lastSymbol == "L"){
+                    correctInput = true
+                lastSymbol = currentSymbol
+                }
+            case "R": if(lastSymbol == "D" || lastSymbol == "R"){
+                correctInput = true
+                lastSymbol = currentSymbol
+                }
+            
+            case "Q": if(lastSymbol == "D" || lastSymbol == "R"){
+                correctInput = true
+                lastSymbol = currentSymbol
+            }
+            default: break
+            }
+        }
+        }
+   func checkSymbolForCorrectInput(_ input: Int )->Bool{
+    correctInput = false
+    giveInentificator(input: input)
+    identifyingChecker()
+    return correctInput
     }
     
 }
