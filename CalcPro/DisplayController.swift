@@ -10,12 +10,22 @@ import UIKit
 
 class DisplayController: UIViewController {
     
-    @IBOutlet weak var screenResult: UILabel!
+    @IBOutlet var screenResult: UILabel!
+    
+   
+    var displayValue: String {
+        get {
+            return screenResult.text!
+        }
+        set {
+            screenResult.text = newValue
+        }
+    }
     
     let output = OutputAdapter.shared
     
     
-    func textChanger(value: String){
+    func textChanger(value: String) {
         print("It's TextChanger!!!")
         screenResult.text = value
         
@@ -23,6 +33,7 @@ class DisplayController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        output.display = self
     }
 
     override func didReceiveMemoryWarning() {

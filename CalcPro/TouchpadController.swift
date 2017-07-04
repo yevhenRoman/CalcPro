@@ -16,23 +16,29 @@ import UIKit
 
 class TouchpadController: UIViewController {
 
-    var touchOnTap: ((_ num: Int)->())?
+    //var touchOnTap: ((_ num: Int)->())?
+    var onNumTap: ((_ num: Int)->())?
+    var onUtilityTap: ((_ symbol: String)->())?
+    var onServiceTap: ((_ keyNum: Int)->())?
     let inputAdapter = IntputAdapter.shared
+    
     @IBAction func touchOndigit(button: UIButton) {
-        //touchOnTap?(button.tag) - навіщо це тут взагалі?
-        inputAdapter.input(value: button.tag)//Маємо передевати тег
+        onNumTap?(button.tag)// - навіщо це тут взагалі?
+        //inputAdapter.input(value: button.tag)//Маємо передевати тег
+        inputAdapter.enterNum(button.tag)
     }
     
     @IBAction func touchOnUtility(button: UIButton) {
         //touchOnTap?(button.tag)  - навіщо це тут взагалі?
+        onUtilityTap?(button.currentTitle!)
 
             switch button.tag {
-            case 10001: inputAdapter.input(operation: Operation.dot)
-            case 10002: inputAdapter.input(operation: Operation.equal)
-            case 10003: inputAdapter.input(operation: Operation.pls)
-            case 10004: inputAdapter.input(operation: Operation.min)
-            case 10005: inputAdapter.input(operation: Operation.mul)
-            case 10006: inputAdapter.input(operation: Operation.div)
+            case 10001: inputAdapter.enterUtility(".")
+            case 10002: inputAdapter.enterUtility("=")
+            case 10003: inputAdapter.enterUtility("+")
+            case 10004: inputAdapter.enterUtility("-")
+            case 10005: inputAdapter.enterUtility("×")
+            case 10006: inputAdapter.enterUtility("÷")
             default : break
             }
         }

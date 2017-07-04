@@ -11,12 +11,15 @@ import Foundation
 
 class OutputAdapter: OutputProtocol {
     
+    var display: DisplayController?
     static let shared = OutputAdapter()
     
-    var display = DisplayController?
     
-    func output(value: String) {
-        print("It's output!!!")
-        display?.textChanger(value: value)
+     func presentResult(result: String) {
+        
+        print("It's \(result) output!!!")
+        //display?.textChanger(value: result)
+        display?.displayValue = result
     }
+    
 }

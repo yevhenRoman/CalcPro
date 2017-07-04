@@ -11,21 +11,26 @@ import Foundation
 
 class IntputAdapter: InputProtocol {
     
-    //Не рохумію навіщо це тут, запитати в Сергія
+    //Не розумію навіщо це тут, запитати в Сергія
     static let shared = IntputAdapter()
-    
-    //це потрібно буде перемістити у CheckAdapter, тут ця штука без потреби
     let brain = PolishBrain.shared
+    let checkAdapter = CheckAdapter.shared
+    //let checker = Checker.shared
     
-    let check = CheckAdapter.shared
     
-    func input(value: Int) {
-        check.checking(symbol: value)
+    func enterNum(_ number: Int){
+        if checkAdapter.checkGrammer(input: String(number)){
+            
+            brain.EnterEquation(equation: String(number))
+        }
     }
-    
-    func input(operation: Operation) {
-        //brain.input(operation: operation)
-        check.checking(symbol: operation)
+    func enterUtility(_ symbol: String){
+        
+    if checkAdapter.checkGrammer(input: String(symbol)){
+       brain.EnterEquation(equation: symbol)
     }
-    
+    }
+    func enterServiceKey(_ serviceKey: Int) {
+        //дописати дії сервісних клавіш
+    }
 }
